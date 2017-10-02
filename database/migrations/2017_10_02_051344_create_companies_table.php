@@ -17,6 +17,8 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             $this->string('name');
             $this->longText('description');
+            $this->integer('user_id')->unsigned();
+            $this->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
